@@ -38,3 +38,17 @@ if __name__ == "__main__":
         print(sess.run(mul))  # [[1. 0.] [0. 6.]]
         print(sess.run(div))  # [[ 1. inf] [inf  6.]]
         print(sess.run(dot))  # [[1. 2.] [5. 6.]]
+
+    # 할당
+    with tf.device("/device:GPU:0"):
+        x = tf.Variable(100.0)
+        new_x = tf.constant(25.0)
+        assigned_x = tf.assign(x, new_x)
+
+    with tf.Session() as sess:
+        sess.run(tf.global_variables_initializer())
+        print(sess.run(x))  # 100.0
+        print(sess.run(new_x))  # 25.0
+        sess.run(assigned_x)
+        print(sess.run(x))  # 25.0
+
