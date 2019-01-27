@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import numpy as np
 import tensorflow as tf
-
-from sklearn.datasets import fetch_california_housing
 
 if __name__ == "__main__":
     tf.reset_default_graph()
